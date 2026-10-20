@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade HTML e JSocorro</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 1rem;
+      margin: 20px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      border-bottom: 1px solid #999;
+      padding-bottom: 5px;
+    }
+
+    #cores span {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <h2>Fonte do body</h2>
+  <button onclick="aumentarFonte()">Aumentar fonte (2rem)</button>
+  <button onclick="diminuirFonte()">Diminuir fonte (0.5rem)</button>
+  <button onclick="normalFonte()">Fonte normal (1rem)</button>
+
+  <h2> Números de -10 a 10</h2>
+  <div id="numeros"></div>
+
+  <h2>Cores</h2>
+  <div id="cores"></div>
+
+  <h2>Números de 1 a 5</h2>
+  <div id="tamanhos"></div>
+
+  <h2>Formulário</h2>
+  <label for="nome">Digite seu nome:</label>
+  <input type="text" id="nome">
+  <button onclick="mostrarNome()">Mostrar nome</button>
+  <div id="resultadoNome"></div>
+
+  <script>
+ 
+    var divNumeros = document.getElementById("numeros");
+    for (var i = -10; i <= 10; i++) {
+      divNumeros.innerHTML += i + "<br>";
+    }
+
+    var cores = ["red", "orange", "yellow", "green", "blue", "purple", "pink"];
+    var divCores = document.getElementById("cores");
+    for (var i = 0; i < cores.length; i++) {
+      divCores.innerHTML += "<span style='color:" + cores[i] + "'>" + cores[i] + "</span>";
+    }
+
+    var divTamanhos = document.getElementById("tamanhos");
+    for (var i = 1; i <= 5; i++) {
+      divTamanhos.innerHTML += "<div style='font-size:" + i + "rem'>" + i + "</div>";
+    }
+
+    function mostrarNome() {
+      var nome = document.getElementById("nome").value;
+      var resultado = document.getElementById("resultadoNome");
+      resultado.innerHTML = "";
+      for (var i = 1; i <= 5; i++) {
+        resultado.innerHTML += "<div style='font-size:" + i + "rem'>" + nome + "</div>";
+      }
+    }
+
+    function aumentarFonte() {
+      document.body.style.fontSize = "2rem";
+    }
+    function diminuirFonte() {
+      document.body.style.fontSize = "0.5rem";
+    }
+    function normalFonte() {
+      document.body.style.fontSize = "1rem";
+    }
+  </script>
+
+</body>
+</html>
